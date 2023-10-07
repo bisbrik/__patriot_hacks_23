@@ -2,7 +2,7 @@ import requests
 import json
 
 class weather_API:
-    
+    # intializes the values
     def __init__(self):
         self.avg_temperature = 0
         self.avg_temperatureApparent = 0
@@ -13,7 +13,7 @@ class weather_API:
         self.avg_windGust = 0
         self.avg_windSpeed = 0
         self.if_uvHealthConcern = 0
-    
+    # gets the averages of the parameters from an 8-hour period given a zipcode
     def get_averages (self, zipcode):
         url = f"https://api.tomorrow.io/v4/weather/forecast?location={zipcode}&US&apikey=gidPJT2TE5dTjbryyiof53743SJp3duL"
         headers = {"accept": "application/json"}
