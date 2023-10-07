@@ -1,7 +1,4 @@
-#import modules
-import hacks_weather as hw
-
-class weather_sort:
+class weather_clothing:
     #field variables for determining values in dictionary; meant to be used throughout program
     #all values are in metric
     #float values
