@@ -11,29 +11,14 @@ root = Tk()
 current_directory = os.getcwd()
 print("Current working directory:", current_directory)
 
-# Specify the path to the image file
-image_path = "sprite.png"
+image = Image.open("sprite.png")
+photo = ImageTk.PhotoImage(image)
+label = Label(root, image = photo)
+label.image = photo
+label.grid(row=1)
 
-# Check if the image file exists in the current directory
-
-#if os.path.exists(image_path):
-#    print(f"The image file '{image_path}' exists in the current directory.")
-#    img = ImageTk.PhotoImage(Image.open(image_path))
-#    canvas = Canvas(root, width=300, height=300)
-#    canvas.pack()
-#   canvas.create_image(20, 20, anchor=NW, image=img)
-#else:
-#    print(f"The image file '{image_path}' does not exist in the current directory.")
-
-
-# Define the geometry of the window
-
-# Create an object of tkinter ImageTk
-img = ImageTk.PhotoImage(Image.open("sprite.png"))
-# Create a Label Widget to display the text or Image
-label = Label(root, image = img)
-label.pack()
-
+#image2 = Image.open("shortSleeve.png")
+#image.paste(image2, (0,0), mask = image2)
 
 # root window title and dimension
 root.title("Welcome to the Weather App!")
@@ -48,11 +33,9 @@ lbl.grid()
 txt = Entry(root, width=10)
 txt.grid(column =1, row =0)
 
-
 # function to display user text when 
 # button is clicked
 def clicked():
-
 	res = "Weather for: " + txt.get()
 	lbl.configure(text = res)
 
