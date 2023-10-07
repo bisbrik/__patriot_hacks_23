@@ -1,11 +1,10 @@
 # Import Module
 from tkinter import *
-from PIL import ImageTk,Image  
+from PIL import ImageTk,Image,ImageDraw, ImageFilter
 import os
 
 # create root window
 root = Tk()
-
 
 # Set the current working directory
 current_directory = os.getcwd()
@@ -15,10 +14,18 @@ image = Image.open("sprite.png")
 photo = ImageTk.PhotoImage(image)
 label = Label(root, image = photo)
 label.image = photo
-label.grid(row=1)
+label.grid(row=0)
 
-#image2 = Image.open("shortSleeve.png")
-#image.paste(image2, (0,0), mask = image2)
+#this will paste the shirt onto the sprite (put in if/else loop later)
+imageShortSleeve = Image.open("shortSleeve.png")
+print("hello")
+image.paste(imageShortSleeve, (0,0))
+
+
+# Update the Tkinter display
+photo = ImageTk.PhotoImage(image)
+label.configure(image=photo)
+label.image = photo
 
 # root window title and dimension
 root.title("Welcome to the Weather App!")
