@@ -18,8 +18,10 @@ label.grid(row=0)
 
 #this will paste the shirt onto the sprite (put in if/else loop later)
 imageShortSleeve = Image.open("shortSleeve.png")
-print("hello")
 image.paste(imageShortSleeve, (0,0))
+
+imageLongSleeve = Image.open("longSleeve.png")
+image.paste(imageLongSleeve, (0,0))
 
 
 # Update the Tkinter display
