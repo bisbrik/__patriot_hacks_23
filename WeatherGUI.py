@@ -58,9 +58,8 @@ def showClothes(array):
 			imageUmbrellaPaste = Image.open("umbrellaPaste.png")
 			imageUmbrella.paste(imageUmbrellaPaste, (0,0), mask = imageUmbrellaPaste)
 
-#tests the function
-#string_input = {"shortPants", "longSleeves"}
-#showClothes(string_input)
+string_input = {"shortPants", "longSleeves"}
+showClothes(string_input)
 
 
 # Update the Tkinter display
@@ -91,6 +90,12 @@ txt.grid(column =1, row =0)
 def clicked():
 	res = "Weather for: " + txt.get()
 	lbl.configure(text = res)
+	print("hello world")
+	res  = "getting the weather..."
+	weatherApi = weather_API()
+	weatherApi.get_averages(txt.get())
+	print(weatherApi.get_data_list())
+	
 
 # button widget with red color text inside
 btn = Button(root, text = "Tell me the weather!" ,
@@ -98,14 +103,6 @@ btn = Button(root, text = "Tell me the weather!" ,
 
 # Set Button Grid
 btn.grid(column=2, row=0)
-
-class Driver:
-	print("hello world")
-	weatherApi = weather_API()
-	weatherApi.get_averages(22015)
-	weatherApi.get_averages(22015)
-
-
 
 # Execute Tkinter
 root.mainloop()
