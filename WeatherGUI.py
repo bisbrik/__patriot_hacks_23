@@ -24,39 +24,39 @@ label = Label(root, image = photo)
 label.image = photo
 label.grid(row=0)
 
-def showClothes(array):
+def showClothes(clothes_dict):
 
-	for string in array: 
+	for item in clothes_dict: 
 
-		if string == "shortSleeves":
+		if item == 'top' and clothes_dict[item] == "short_sleeves":
 			imageShortSleeve = Image.open("shortSleeve.png")
 			image.paste(imageShortSleeve, (0,0), mask = imageShortSleeve)
 
-		if string == "longSleeves":
+		elif item == 'top' and clothes_dict[item] == "long_sleeves":
 			imageLongSleeve = Image.open("longSleeve.png")
 			image.paste(imageLongSleeve, (0,0), mask = imageLongSleeve)
 
-		if string == "shortPants":
+		if item == 'bottom' and clothes_dict[item] == "short_sleeves":
 			imageShortPants = Image.open("shortPants.png")
 			image.paste(imageShortPants, (0,0), mask = imageShortPants)
 
-		if string == "longPants":
+		if item == 'bottom' and clothes_dict[item] == "long_sleeves":
 			imageLongPants = Image.open("longPants.png")
 			image.paste(imageLongPants, (0,0), mask = imageLongPants)
 
-		if string == "sunglasses":
-			imageSunglasses = Image.open("sunglasses.png")
-			image.paste(imageSunglasses, (0,0), mask = imageSunglasses)
-
-		if string == "hat":
+		if item == 'sun_protection' and clothes_dict[item] == True:
 			imageHat = Image.open("hat.png")
 			image.paste(imageHat, (0,0), mask = imageHat)
-
-		if string == "umbrella":
+			imageSunglasses = Image.open("sunglasses.png")
+			image.paste(imageSunglasses, (0,0), mask = imageSunglasses)
+			
+		if item == 'umbrella' and clothes_dict[item] == True:
 			imageUmbrella = Image.open("umbrella.png")
 			image.paste(imageUmbrella, (0,0), mask = imageUmbrella)
 			imageUmbrellaPaste = Image.open("umbrellaPaste.png")
 			imageUmbrella.paste(imageUmbrellaPaste, (0,0), mask = imageUmbrellaPaste)
+
+		#add snow gear and windbreaker
 
 #tests the function
 #string_input = {"shortPants", "longSleeves"}
@@ -95,7 +95,12 @@ def clicked():
 	res  = "getting the weather..."
 	weatherApi = weather_API()
 	weatherApi.get_averages(txt.get())
-	print(weatherApi.get_data_list())
+	weather_list = weatherApi.get_data_list()
+	print(weather_list)
+	clothes = weather_clothing(weather_list)
+	my_clothes = clothes.get_clothing()
+	print(my_clothes)
+	showClothes(my_clothes)
 	
 
 # button widget with red color text inside
