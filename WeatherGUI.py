@@ -100,7 +100,7 @@ btn.grid(column=2, row=0)
 
 class Driver:
 	print("hello world")
-	weatherApi = weather_API()
+	weatherApi = weather_API.weather_API()
 	weatherApi.get_averages(22015)
 	weatherApi.get_averages(22015)
 
