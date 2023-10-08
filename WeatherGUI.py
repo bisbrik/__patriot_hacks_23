@@ -26,44 +26,49 @@ label.grid(row=0)
 
 def showClothes(clothes_dict):
 
-	for item in clothes_dict: 
+	print(clothes_dict['top'])
+	if clothes_dict['top'] == "short_sleeves":
+		imageShortSleeve = Image.open("shortSleeve.png")
+		image.paste(imageShortSleeve, (0,0), mask = imageShortSleeve)
 
-		if item == 'top' and clothes_dict[item] == "short_sleeves":
-			imageShortSleeve = Image.open("shortSleeve.png")
-			image.paste(imageShortSleeve, (0,0), mask = imageShortSleeve)
+	elif clothes_dict['top'] == "long_sleeves":
+		imageLongSleeve = Image.open("longSleeve.png")
+		image.paste(imageLongSleeve, (0,0), mask = imageLongSleeve)
 
-		elif item == 'top' and clothes_dict[item] == "long_sleeves":
-			imageLongSleeve = Image.open("longSleeve.png")
-			image.paste(imageLongSleeve, (0,0), mask = imageLongSleeve)
+	print(clothes_dict['bottom'])
+	if clothes_dict['bottom'] == "short_sleeves":
+		imageShortPants = Image.open("shortPants.png")
+		image.paste(imageShortPants, (0,0), mask = imageShortPants)
 
-		if item == 'bottom' and clothes_dict[item] == "short_sleeves":
-			imageShortPants = Image.open("shortPants.png")
-			image.paste(imageShortPants, (0,0), mask = imageShortPants)
+	if clothes_dict['bottom'] == "long_sleeves":
+		imageLongPants = Image.open("longPants.png")
+		image.paste(imageLongPants, (0,0), mask = imageLongPants)
 
-		if item == 'bottom' and clothes_dict[item] == "long_sleeves":
-			imageLongPants = Image.open("longPants.png")
-			image.paste(imageLongPants, (0,0), mask = imageLongPants)
+	print(clothes_dict['sun_protection'])
+	if clothes_dict['sun_protection'] == True:
+		imageHat = Image.open("hat.png")
+		image.paste(imageHat, (0,0), mask = imageHat)
 
-		if item == 'sun_protection' and clothes_dict[item] == True:
-			imageHat = Image.open("hat.png")
-			image.paste(imageHat, (0,0), mask = imageHat)
-			imageSunglasses = Image.open("sunglasses.png")
-			image.paste(imageSunglasses, (0,0), mask = imageSunglasses)
-			
-		if item == 'umbrella' and clothes_dict[item] == True:
-			imageUmbrella = Image.open("umbrella.png")
-			image.paste(imageUmbrella, (0,0), mask = imageUmbrella)
-			imageUmbrellaPaste = Image.open("umbrellaPaste.png")
-			imageUmbrella.paste(imageUmbrellaPaste, (0,0), mask = imageUmbrellaPaste)
+		imageSunglasses = Image.open("sunglasses.png")
+		image.paste(imageSunglasses, (0,0), mask = imageSunglasses)
+	
+	print(clothes_dict['umbrella'])
+	if clothes_dict['umbrella'] == True:
+		imageUmbrella = Image.open("umbrella.png")
+		image.paste(imageUmbrella, (0,0), mask = imageUmbrella)
+		imageUmbrellaPaste = Image.open("umbrellaPaste.png")
+		imageUmbrella.paste(imageUmbrellaPaste, (0,0), mask = imageUmbrellaPaste)
 
-		#add snow gear and windbreaker
-		if item == 'snow_gear' and clothes_dict[item] == True:
-			imageSnowGear = Image.open("snowGear.png")
-			image.paste(imageSnowGear, (0,0), mask = imageSnowGear)
-		
-		elif item == 'jacket' and clothes_dict[item] == True:
-			imageJacket = Image.open("windbreaker.png")
-			image.paste(imageJacket, (0,0), mask = imageJacket)
+	#add snow gear and windbreaker
+	print(clothes_dict['snow_gear'])
+	print(clothes_dict['jacket'])
+	if clothes_dict['snow_gear'] == True:
+		imageSnowGear = Image.open("snowGear.png")
+		image.paste(imageSnowGear, (0,0), mask = imageSnowGear)
+	
+	elif clothes_dict['jacket'] == True:
+		imageJacket = Image.open("windbreaker.png")
+		image.paste(imageJacket, (0,0), mask = imageJacket)
 
 #tests the function
 #string_input = {"shortPants", "longSleeves"}

@@ -16,7 +16,7 @@ class weather_API:
         self.if_uvHealthConcern = 0
     # gets the averages of the parameters from an 8 hour period given a zipcode
     def get_averages (self, zipcode):
-        url = f"https://api.tomorrow.io/v4/weather/forecast?location={zipcode}&US&apikey=gidPJT2TE5dTjbryyiof53743SJp3duL"
+        url = f"https://api.tomorrow.io/v4/weather/forecast?location={zipcode}&US&apikey=o2Vfm23Ix9MavCUeV9xra39aFb9Z3Yul"
         headers = {"accept": "application/json"}
         for i in range(8) :
             response = requests.get(url, headers=headers)
