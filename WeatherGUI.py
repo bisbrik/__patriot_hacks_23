@@ -79,5 +79,5 @@ def showClothes(string_array):
 			imageUmbrellaPaste = Image.open("umbrellaPaste.png")
 			imageUmbrella.paste(imageUmbrellaPaste, (0,0), mask = imageUmbrellaPaste)
 
-# Execute Tkinter
+# Execute Tkinter 
 root.mainloop()
