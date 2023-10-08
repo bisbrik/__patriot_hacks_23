@@ -4,7 +4,7 @@ import json
 class weather_API:
     # intializes the values
     def __init__(self):
-        self.data_list[0, 0, 0, 0, 0, 0, 0, 0, 0]
+        self.data_list = [0, 0, 0, 0, 0, 0, 0, 0, 0]
         self.avg_temperature = 0
         self.avg_temperatureApparent = 0
         self.avg_humidity = 0
