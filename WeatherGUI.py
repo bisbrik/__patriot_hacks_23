@@ -57,15 +57,13 @@ def showClothes(clothes_dict):
 			imageUmbrella.paste(imageUmbrellaPaste, (0,0), mask = imageUmbrellaPaste)
 
 		#add snow gear and windbreaker
-		'''
 		if item == 'snow_gear' and clothes_dict[item] == True:
 			imageSnowGear = Image.open("snowGear.png")
 			image.paste(imageSnowGear, (0,0), mask = imageSnowGear)
 		
-		elif item == 'windbreaker' and clothes_dict[item] == True:
-			imageWindbreaker = Image.open("windbreaker.png")
-			image.paste(imageWindbreaker, (0,0), mask = imageWindbreaker)
-		'''
+		elif item == 'jacket' and clothes_dict[item] == True:
+			imageJacket = Image.open("windbreaker.png")
+			image.paste(imageJacket, (0,0), mask = imageJacket)
 
 #tests the function
 #string_input = {"shortPants", "longSleeves"}
