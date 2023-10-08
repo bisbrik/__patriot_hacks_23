@@ -2,6 +2,8 @@
 from tkinter import *
 from PIL import ImageTk,Image,ImageDraw, ImageFilter
 import os
+#import weather_API
+#import weather_clothing
 
 # create root window
 root = Tk()
@@ -9,51 +11,28 @@ root = Tk()
 # Set the current working directory
 current_directory = os.getcwd()
 print("Current working directory:", current_directory)
-
 image = Image.open("sprite.png")
+resize_image = image.resize((60, 130))
+
+#img = ImageTk.PhotoImage(resize_image)
+#label = Label(image=img)
+#label.image = img
+#label.grid(row=0)
+
 photo = ImageTk.PhotoImage(image)
 label = Label(root, image = photo)
 label.image = photo
 label.grid(row=0)
 
-# Update the Tkinter display
-photo = ImageTk.PhotoImage(image)
-label.configure(image=photo)
-label.image = photo
+def showClothes(array):
 
-# root window title and dimension
-root.title("Welcome to the Weather App!")
-# Set geometry(widthxheight)
-root.geometry('350x200')
+	for string in array: 
 
-# adding a label to the root window
-lbl = Label(root, text = "What is your zipcode?")
-lbl.grid()
-
-# adding Entry Field
-txt = Entry(root, width=10)
-txt.grid(column =1, row =0)
-
-# function to display user text when 
-# button is clicked
-def clicked():
-	res = "Weather for: " + txt.get()
-	lbl.configure(text = res)
-
-# button widget with red color text inside
-btn = Button(root, text = "Tell me the weather!" ,
-			fg = "red", command=clicked)
-# Set Button Grid
-btn.grid(column=2, row=0)
-
-def showClothes(string_array):
-
-	for string in string_array:
-		if string == "shortSleeve":
+		if string == "shortSleeves":
 			imageShortSleeve = Image.open("shortSleeve.png")
 			image.paste(imageShortSleeve, (0,0), mask = imageShortSleeve)
 
-		if string == "longSleeve":
+		if string == "longSleeves":
 			imageLongSleeve = Image.open("longSleeve.png")
 			image.paste(imageLongSleeve, (0,0), mask = imageLongSleeve)
 
@@ -79,5 +58,52 @@ def showClothes(string_array):
 			imageUmbrellaPaste = Image.open("umbrellaPaste.png")
 			imageUmbrella.paste(imageUmbrellaPaste, (0,0), mask = imageUmbrellaPaste)
 
-# Execute Tkinter 
+string_input = {"shortPants", "longSleeves"}
+showClothes(string_input)
+
+
+# Update the Tkinter display
+#photo = ImageTk.PhotoImage(image)
+#label.configure(image=photo)
+#label.image = photo
+
+# Update the Tkinter display
+photo = ImageTk.PhotoImage(image)
+label.configure(image=photo)
+label.image = photo
+
+# root window title and dimension
+root.title("Welcome to the Weather App!")
+
+# Set geometry(widthxheight)
+root.geometry('350x200')
+
+# adding a label to the root window
+lbl = Label(root, text = "What is your zipcode?")
+lbl.grid()
+
+# adding Entry Field
+txt = Entry(root, width=10)
+txt.grid(column =1, row =0)
+
+# function to display user text when button is clicked
+def clicked():
+	res = "Weather for: " + txt.get()
+	lbl.configure(text = res)
+
+# button widget with red color text inside
+btn = Button(root, text = "Tell me the weather!" ,
+			fg = "red", command=clicked)
+
+# Set Button Grid
+btn.grid(column=2, row=0)
+
+#class Driver:
+	#print("hello world")
+	#weather_API().get_averages(22015)
+	#weatherApi.get_averages(22015)
+
+
+
+# Execute Tkinter
 root.mainloop()
