@@ -17,7 +17,7 @@ class weather_clothing:
         
         #determines what clothing to wear for user
         #            long sleeve or shorts    dependent on windSpeed    uvHealthConcern     avgRainAccumulation avgSnowAccumulation
-        self.clothing = { 'top': '', 'bottom': '', 'windbreaker': False, 'sun_protection': False, 'umbrella': False, 'snow_gear': False }
+        self.clothing = { 'top': '', 'bottom': '', 'jacket': False, 'sun_protection': False, 'umbrella': False, 'snow_gear': False }
     
     def __str__(self):
         return self.clothing
@@ -71,7 +71,7 @@ class weather_clothing:
 
         #Strong breeze
         if (self.avgWindSpeed >= 12 or self.avgWindGust >= 7):
-            self.clothing['windbreaker'] = True
+            self.clothing['jacket'] = True
 
         #0.1mm currently being used as placeholder
         if (self.avgRainAccumulation > 0.1):
