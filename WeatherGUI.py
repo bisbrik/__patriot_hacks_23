@@ -2,8 +2,8 @@
 from tkinter import *
 from PIL import ImageTk,Image,ImageDraw, ImageFilter
 import os
-import weather_API
-import weather_clothing
+from weather_API import weather_API
+from weather_clothing import weather_clothing
 
 # create root window
 root = Tk()
@@ -100,7 +100,7 @@ btn.grid(column=2, row=0)
 
 class Driver:
 	print("hello world")
-	weatherApi = weather_API.weather_API()
+	weatherApi = weather_API()
 	weatherApi.get_averages(22015)
 	weatherApi.get_averages(22015)
 
