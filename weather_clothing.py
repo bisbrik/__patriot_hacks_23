@@ -47,7 +47,7 @@ class weather_clothing:
     def get_avg_wind_gust(self):
         return self.avgWindGust
     
-    def get_uv_health_concern(self):
+    def get_if_uv_health_concern(self):
         return self.uvHealthConcern
     
     #determines values in dictioanary
