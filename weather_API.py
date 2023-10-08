@@ -4,6 +4,7 @@ import json
 class weather_API:
     # intializes the values
     def __init__(self):
+        self.data_list[0, 0, 0, 0, 0, 0, 0, 0, 0]
         self.avg_temperature = 0
         self.avg_temperatureApparent = 0
         self.avg_humidity = 0
@@ -13,7 +14,7 @@ class weather_API:
         self.avg_windGust = 0
         self.avg_windSpeed = 0
         self.if_uvHealthConcern = 0
-    # gets the averages of the parameters from an 8-hour period given a zipcode
+    # gets the averages of the parameters from an 8 hour period given a zipcode
     def get_averages (self, zipcode):
         url = f"https://api.tomorrow.io/v4/weather/forecast?location={zipcode}&US&apikey=gidPJT2TE5dTjbryyiof53743SJp3duL"
         headers = {"accept": "application/json"}
@@ -38,30 +39,15 @@ class weather_API:
         self.avg_uvIndex /= 8
         self.avg_windGust /= 8
         self.avg_windSpeed /= 8
+        self.data_list[0] = self.avg_temperature
+        self.data_list[1] = self.avg_temperatureApparent
+        self.data_list[2] = self.avg_humidity
+        self.data_list[3] = self.avg_rainAccumulation
+        self.data_list[4] = self.avg_snowAccumulation
+        self.data_list[5] = self.avg_uvIndex
+        self.data_list[6] = self.avg_windGust
+        self.data_list[7] = self.avg_windSpeed
+        self.data_list[8] = self.if_uvHealthConcern
         
-    def get_avg_temperature (self):
-        return self.avg_temperature
-
-    def get_avg_temperatureApparent (self):
-        return self.avg_temperatureApparent
-    
-    def get_avg_humidity (self):
-        return self.avg_humidity
-    
-    def get_avg_rainAccumulation (self):
-        return self.avg_rainAccumulation
-    
-    def get_avg_snowAccumulation (self):
-        return self.avg_snowAccumulation
-    
-    def get_avg_uvIndex (self):
-        return self.avg_uvIndex
-    
-    def get_avg_windGust (self):
-        return self.avg_windGust
-    
-    def get_avg_windSpeed (self):
-        return self.avg_windSpeed
-    
-    def get_if_uvHealthConcern (self):
-        return self.if_uvHealthConcern
+    def get_data_list (self):
+        return self.data_list
