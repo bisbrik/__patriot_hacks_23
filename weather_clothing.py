@@ -1,21 +1,27 @@
 class weather_clothing:
     #field variables for determining values in dictionary; meant to be used throughout program
     #all values are in metric
-    #float values
-    def __init__(self, avgTemp, avgApparentTemp, avgHumidity, avgRainAccumulation, avgSnowAccumulation, uvIndex, avgWindSpeed, avgWindGust, uvHealthConcern):
+  
+    def __init__(self, avgTemp, avgApparentTemp, avgHumidity, avgRainAccumulation, avgSnowAccumulation, uvIndex, uvHealthConcern, avgWindSpeed, avgWindGust):
+        #float values
         self.avgTemp = avgTemp
         self.avgApparentTemp = avgApparentTemp
         self.avgHumidity = avgHumidity
         self.avgRainAccumulation = avgRainAccumulation
         self.avgSnowAccumulation = avgSnowAccumulation
         self.uvIndex = uvIndex
-        self.avgWindSpeed = avgWindSpeed
-        self.avgWindGust = avgWindGust
         #bool value
         self.uvHealthConcern = uvHealthConcern
+        #float value
+        self.avgWindSpeed = avgWindSpeed
+        self.avgWindGust = avgWindGust
+
         #determines what clothing to wear for user
         #            long sleeve or shorts    dependent on windSpeed    uvHealthConcern     avgRainAccumulation avgSnowAccumulation
         self.clothing = { 'top': '', 'bottom': '', 'windbreaker': False, 'sun_protection': False, 'umbrella': False, 'snow_gear': False }
+    
+    def __str__(self):
+        return self.clothing
     
     def get_avg_temp(self):
         return self.avgTemp
@@ -50,7 +56,7 @@ class weather_clothing:
         #Hot weather
         if (self.avgTemp >= 25):
             self.clothing['top'] = 'short_sleeve'
-            self.clothing['bottom'] = 'long_sleeve'
+            self.clothing['bottom'] = 'short_sleeve'
         #cool weather
         elif (self.avgTemp >= 15):
             self.clothing['top'] = 'short_sleeve'
@@ -65,7 +71,7 @@ class weather_clothing:
             self.clothing['sun_protection'] = True
 
         #Strong breeze
-        if (self.avgWindSpeed >= 12):
+        if (self.avgWindSpeed >= 12 or self.avgWindGust >= 7):
             self.clothing['windbreaker'] = True
 
         #0.1mm currently being used as placeholder
@@ -75,5 +81,24 @@ class weather_clothing:
             self.clothing['snow_gear'] = True
 
         return self.clothing
+    
+'''
+#test driver
+def main():
+    #all units in metric
+    temp = 20.0
+    apparent_temp = 21.0
+    humidity = 80.2
+    rainfall = 22.0
+    snowfall = 0
+    uv = 1
+    uv_problem = 0
+    wind_speed = 13
+    wind_gusts = 8
+    clothes = weather_clothing(temp, apparent_temp, humidity, rainfall, snowfall, uv, uv_problem, wind_speed, wind_gusts)
 
+    print(clothes.get_clothing())
 
+if __name__ == "__main__":
+    main()
+'''
