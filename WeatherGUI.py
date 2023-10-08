@@ -16,12 +16,29 @@ label = Label(root, image = photo)
 label.image = photo
 label.grid(row=0)
 
-#this will paste the shirt onto the sprite (put in if/else loop later)
 imageShortSleeve = Image.open("shortSleeve.png")
-image.paste(imageShortSleeve, (0,0))
+image.paste(imageShortSleeve, (0,0), mask = imageShortSleeve)
 
 imageLongSleeve = Image.open("longSleeve.png")
-image.paste(imageLongSleeve, (0,0))
+image.paste(imageLongSleeve, (0,0), mask = imageLongSleeve)
+
+imageShortPants = Image.open("shortPants.png")
+image.paste(imageShortPants, (0,0), mask = imageShortPants)
+
+imageLongPants = Image.open("longPants.png")
+image.paste(imageLongPants, (0,0), mask = imageLongPants)
+
+imageSunglasses = Image.open("sunglasses.png")
+image.paste(imageSunglasses, (0,0), mask = imageSunglasses)
+
+imageHat = Image.open("hat.png")
+image.paste(imageHat, (0,0), mask = imageHat)
+
+imageUmbrella = Image.open("umbrella.png")
+image.paste(imageUmbrella, (0,0), mask = imageUmbrella)
+
+imageUmbrellaPaste = Image.open("umbrellaPaste.png")
+imageUmbrella.paste(imageUmbrellaPaste, (0,0), mask = imageUmbrellaPaste)
 
 
 # Update the Tkinter display
