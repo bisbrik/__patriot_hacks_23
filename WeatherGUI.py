@@ -58,8 +58,9 @@ def showClothes(array):
 			imageUmbrellaPaste = Image.open("umbrellaPaste.png")
 			imageUmbrella.paste(imageUmbrellaPaste, (0,0), mask = imageUmbrellaPaste)
 
-string_input = {"shortPants", "longSleeves"}
-showClothes(string_input)
+#tests the function
+#string_input = {"shortPants", "longSleeves"}
+#showClothes(string_input)
 
 
 # Update the Tkinter display
