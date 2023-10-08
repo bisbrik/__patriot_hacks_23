@@ -2,20 +2,19 @@ class weather_clothing:
     #field variables for determining values in dictionary; meant to be used throughout program
     #all values are in metric
   
-    def __init__(self, avgTemp, avgApparentTemp, avgHumidity, avgRainAccumulation, avgSnowAccumulation, uvIndex, uvHealthConcern, avgWindSpeed, avgWindGust):
+    def __init__(self, data_list):
         #float values
-        self.avgTemp = avgTemp
-        self.avgApparentTemp = avgApparentTemp
-        self.avgHumidity = avgHumidity
-        self.avgRainAccumulation = avgRainAccumulation
-        self.avgSnowAccumulation = avgSnowAccumulation
-        self.uvIndex = uvIndex
-        #bool value
-        self.uvHealthConcern = uvHealthConcern
+        self.avgTemp = data_list[0]
+        self.avgApparentTemp = data_list[1]
+        self.avgHumidity = data_list[2]
+        self.avgRainAccumulation = data_list[3]
+        self.avgSnowAccumulation = data_list[4]
+        self.uvIndex = data_list[5]
         #float value
-        self.avgWindSpeed = avgWindSpeed
-        self.avgWindGust = avgWindGust
-
+        self.avgWindGust = data_list[6]
+        self.avgWindSpeed = data_list[7]
+        self.uvHealthConcern = data_list[8]
+        
         #determines what clothing to wear for user
         #            long sleeve or shorts    dependent on windSpeed    uvHealthConcern     avgRainAccumulation avgSnowAccumulation
         self.clothing = { 'top': '', 'bottom': '', 'windbreaker': False, 'sun_protection': False, 'umbrella': False, 'snow_gear': False }
