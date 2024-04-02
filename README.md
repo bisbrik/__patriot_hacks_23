@@ -32,7 +32,7 @@ This Python program is designed to provide personalized clothing recommendations
 4. The program will fetch weather data and display personalized clothing recommendations based on the forecast.
 
 ## Example
-[Weather Clothing Recommendations App](example_screenshot.png)
+![image](https://github.com/bisbrik/__patriot_hacks_23/assets/126714790/60d8fd1d-1f95-42ad-b78e-bdab58879d70)
 
 ## Notes
 - Ensure an active internet connection for fetching weather data.
